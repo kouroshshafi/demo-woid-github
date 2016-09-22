@@ -25,7 +25,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+ALLOWED_HOSTS = config('ALLOWED_HOSTS',  cast=Csv())
 
 
 MESSAGE_LEVEL = config('MESSAGE_LEVEL', default=message_constants.INFO, cast=int)
@@ -95,12 +95,16 @@ USE_L10N = True
 USE_TZ = True
 
 
-STATIC_ROOT = PROJECT_DIR.parent.parent.child('static')
+#STATIC_ROOT = PROJECT_DIR.parent.parent.child('static')
 STATIC_URL = '/static/'
 
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+STATIC_ROOT= os.path.join(PROJECT_DIR,'staticfiles/')
 STATICFILES_DIRS = (
-    PROJECT_DIR.child('static'),
+    os.path.join(PROJECT_ROOT,'static/'),
 )
+
+#STATICFILES_DIRS = (PROJECT_DIR.child('static'),)
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
