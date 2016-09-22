@@ -19,8 +19,8 @@ from twisted.internet import reactor
 from woid.apps.services import crawlers
 
 
-FIVE_MINUTES = 1 * 60
-THIRTY_MINUTES = 1 * 60
+FIVE_MINUTES = 5 * 60
+THIRTY_MINUTES = 30 * 60
 
 #(crawlers.NyTimesCrawler(), THIRTY_MINUTES)
 def main():
