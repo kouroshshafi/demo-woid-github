@@ -1,0 +1,1 @@
+web: gunicorn woid.wsgi --log-file -
