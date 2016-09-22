@@ -132,3 +132,6 @@ NYTIMES_API_KEY = config('NYTIMES_API_KEY')
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+FIXTURE_DIRS = (
+   os.path.join(PROJECT_ROOT, 'apps/services/fixtures/'),
+)
