@@ -135,3 +135,9 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 FIXTURE_DIRS = (
    os.path.join(PROJECT_ROOT, 'apps/services/fixtures/'),
 )
+
+ACCESS_TOKEN = config('ACCESS_TOKEN')
+ACCESS_TOKEN_SECRET = config('ACCESS_TOKEN_SECRET')
+CONSUMER_KEY = config('CONSUMER_KEY')
+CONSUMER_SECRET = config('CONSUMER_SECRET')
+

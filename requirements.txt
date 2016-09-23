@@ -11,3 +11,4 @@ Twisted==15.3.0
 whitenoise==3.2.1
 django-compressor==2.1
 gunicorn==19.0.0
+tweepy==3.5.0

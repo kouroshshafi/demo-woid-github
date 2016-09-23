@@ -28,6 +28,7 @@ def main():
     	(crawlers.RedditCrawler(), FIVE_MINUTES),
         (crawlers.MediumCrawler(), FIVE_MINUTES),
         (crawlers.DiggCrawler(), FIVE_MINUTES),
+        (crawlers.TwitterCrawler(), FIVE_MINUTES),
         (crawlers.HackerNewsCrawler(), FIVE_MINUTES),
         (crawlers.GithubCrawler(), THIRTY_MINUTES)
         )

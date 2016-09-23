@@ -51,6 +51,16 @@
   },
   {
     "model": "services.Service",
+    "pk": 7,
+    "fields": {
+      "name": "Twitter",
+      "slug": "twitter",
+      "url": "http://www.twitter.com",
+      "story_url": "http://twitter.com"
+    }
+  },
+  {
+    "model": "services.Service",
     "pk": 6,
     "fields": {
       "name": "Digg",

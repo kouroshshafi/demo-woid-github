@@ -7,11 +7,13 @@ import re
 from bs4 import BeautifulSoup
 import requests
 from firebase import firebase
+import tweepy
 
 from django.conf import settings
 
-
 requests.packages.urllib3.disable_warnings()
+
+
 
 
 class AbstractBaseClient(object):
@@ -145,4 +147,29 @@ class DiggClient(AbstractBaseClient):
             story_data['url'] = digg['data-contenturl']
             data.append(story_data)
 
+        return data
+
+
+auth = tweepy.OAuthHandler(settings.CONSUMER_KEY, settings.CONSUMER_SECRET)
+auth.set_access_token(settings.ACCESS_TOKEN, settings.ACCESS_TOKEN_SECRET)
+
+class TwitterClient(AbstractBaseClient):
+    def __init__(self):
+        self.tweepy_app = tweepy.API(auth)
+
+    def get_top_stories(self):
+    	data = list()
+        public_tweets = self.tweepy_app.home_timeline()
+        for tweet in public_tweets:
+        	story_data = dict()
+        	story_data['title']= tweet.text
+        	try:
+        		story_data['score']= int(tweet.retweet_count)
+        	except:
+        		story_data['score'] = 0
+        	story_data['id'] = tweet.id
+        	story_data['url'] = "https://twitter.com/"+tweet.author.screen_name+"/status/"+str(tweet.id)
+        	data.append(story_data)
+        	
+        	
         return data
