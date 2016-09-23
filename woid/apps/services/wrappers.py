@@ -162,9 +162,10 @@ class TwitterClient(AbstractBaseClient):
         public_tweets = self.tweepy_app.home_timeline()
         for tweet in public_tweets:
         	story_data = dict()
-        	story_data['title']= tweet.text
+        	story_data['title']= tweet.author.screen_name
+        	story_data['content']= tweet.text
         	try:
-        		story_data['score']= int(tweet.retweet_count)
+        		story_data['score']= 5*int(tweet.retweet_count)+int(tweet.favorite_count)
         	except:
         		story_data['score'] = 0
         	story_data['id'] = tweet.id

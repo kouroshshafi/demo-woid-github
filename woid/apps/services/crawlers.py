@@ -332,6 +332,7 @@ class TwitterCrawler(AbstractBaseCrawler):
                     update.save()
 
                 story.title = story_data['title']
+                story.content = story_data['content']
                 story.url = story_data['url']
                 story.score = score
                 story.status = Story.OK

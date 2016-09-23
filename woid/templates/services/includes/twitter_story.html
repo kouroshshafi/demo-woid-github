@@ -1,11 +1,16 @@
 <li>
-  <a href="{{ story.url }}" target="_blank">{{ story.title }}</a>
+  {{ story.title }}: {{story.comments}}  
   {% if append_service %}
     <small><strong>{{ story.service.name }}</strong></small>
   {% endif %}
   <p>
-    {{ story.score }} twitter score
+
+  </p>
+  <p>
+    {{ story.score }} score
     &bullet;
     {{ story.date|date:'M d, Y'|lower }}
+    &bullet;
+    <a href="{{ story.url }}" target="_blank">link</a>
   </p>
 </li>
