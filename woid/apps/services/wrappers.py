@@ -163,7 +163,7 @@ class TwitterClient(AbstractBaseClient):
         for tweet in public_tweets:
         	story_data = dict()
         	story_data['title']= tweet.author.screen_name
-        	story_data['content']= tweet.text
+        	story_data['description']= tweet.text
         	try:
         		story_data['score']= 5*int(tweet.retweet_count)+int(tweet.favorite_count)
         	except:
