@@ -164,7 +164,7 @@ class TwitterClient(AbstractBaseClient):
         twt_fa_telegram_tweets= self.tweepy_app.favorites(screen_name="twt_fa_telegram", count=no_tweets_to_check)
         tweets_all= twt_fa_telegram_tweets + twt_fa_telegram_tweets
         for tweet in tweets_all:
-            if tw.lang == u"fa":
+            if tweet.lang == u"fa":
             	story_data = dict()
             	story_data['title']= tweet.author.screen_name
             	story_data['description']= tweet.text
