@@ -164,16 +164,17 @@ class TwitterClient(AbstractBaseClient):
         twt_fa_telegram_tweets= self.tweepy_app.favorites(screen_name="twt_fa_telegram", count=no_tweets_to_check)
         tweets_all= twt_fa_telegram_tweets + twt_fa_telegram_tweets
         for tweet in tweets_all:
-        	story_data = dict()
-        	story_data['title']= tweet.author.screen_name
-        	story_data['description']= tweet.text
-        	try:
-        		story_data['score']= 5*int(tweet.retweet_count)+int(tweet.favorite_count)
-        	except:
-        		story_data['score'] = 0
-        	story_data['id'] = tweet.id
-        	story_data['url'] = "https://twitter.com/"+tweet.author.screen_name+"/status/"+str(tweet.id)
-        	data.append(story_data)
+            if tw.lang == u"fa":
+            	story_data = dict()
+            	story_data['title']= tweet.author.screen_name
+            	story_data['description']= tweet.text
+            	try:
+            		story_data['score']= 5*int(tweet.retweet_count)+int(tweet.favorite_count)
+            	except:
+            		story_data['score'] = 0
+            	story_data['id'] = tweet.id
+            	story_data['url'] = "https://twitter.com/"+tweet.author.screen_name+"/status/"+str(tweet.id)
+            	data.append(story_data)
 
 
         return data
