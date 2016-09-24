@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %}{{ service.name }} · Woid{% endblock %}
+{% block title %}{{ service.name }} · AK {% endblock %}
 
 {% block javascript %}
   <script src="{% static 'js/services/stories.js' %}"></script>
@@ -11,7 +11,7 @@
 {% block content %}
   <h2>{{ service.name }} <small>({{ subtitle }})</small></h2>
   {% include 'services/includes/menu.html' %}
-  <ol class="stories" start="{{ start }}">
+  <ol class="stories {% if service.name == "Twitter" %} right-aligned-language{% endif %}" start="{{ start }}">
     {% for story in stories %}
       {% include story.get_template %}
     {% endfor %}

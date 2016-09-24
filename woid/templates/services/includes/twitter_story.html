@@ -1,16 +1,14 @@
-<li>
-  {{ story.title }}: {{story.description}}  
+<li class="right-aligned-language">
+     <small><strong>{{ story.title }}</strong></small> &bullet; {{story.description}}
   {% if append_service %}
-    <small><strong>{{ story.service.name }}</strong></small>
+  <small><strong>{{ story.service.name }}</strong></small>
   {% endif %}
   <p>
-
-  </p>
-  <p>
-    {{ story.score }} score
+    {{ story.score }}
+     امتیاز 
+     &bullet;
+    <a href="{{ story.url }}" target="_blank">link</a>
     &bullet;
     {{ story.date|date:'M d, Y'|lower }}
-    &bullet;
-    <a href="{{ story.url }}" target="_blank">link</a>
   </p>
 </li>

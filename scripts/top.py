@@ -25,11 +25,11 @@ THIRTY_MINUTES = 1 * 60
 #(crawlers.NyTimesCrawler(), THIRTY_MINUTES)
 def main():
     service_crawlers = (
-    	(crawlers.RedditCrawler(), FIVE_MINUTES),
-        (crawlers.MediumCrawler(), FIVE_MINUTES),
-        (crawlers.DiggCrawler(), FIVE_MINUTES),
-        (crawlers.TwitterCrawler(), FIVE_MINUTES),
-        (crawlers.HackerNewsCrawler(), FIVE_MINUTES),
+    	(crawlers.RedditCrawler(), THIRTY_MINUTES),
+        (crawlers.MediumCrawler(), THIRTY_MINUTES),
+        (crawlers.DiggCrawler(), THIRTY_MINUTES),
+        (crawlers.TwitterCrawler(), THIRTY_MINUTES),
+        (crawlers.HackerNewsCrawler(), THIRTY_MINUTES),
         (crawlers.GithubCrawler(), THIRTY_MINUTES)
         )
 

@@ -43,7 +43,7 @@ class RedditClient(AbstractBaseClient):
     def get_front_page_stories(self):
         r = None
         stories = list()
-        
+
         try:
             r = requests.get('https://www.reddit.com/.json', headers=self.headers)
             result = r.json()
@@ -91,7 +91,7 @@ class GithubClient(AbstractBaseClient):
                     repo_data['stars'] = int(re.sub(r'\D', '', repo_meta[0]))
 
             data.append(repo_data)
-        
+
         return data
 
 
@@ -133,7 +133,7 @@ class DiggClient(AbstractBaseClient):
         html = r.text
         soup = BeautifulSoup(html, 'html.parser')
         diggs = soup(attrs={ 'class': 'digg-story' })
-        
+
         data = list()
         for digg in diggs:
             story_data = dict()
@@ -159,8 +159,11 @@ class TwitterClient(AbstractBaseClient):
 
     def get_top_stories(self):
     	data = list()
-        public_tweets = self.tweepy_app.home_timeline()
-        for tweet in public_tweets:
+        no_tweets_to_check=50
+        public_tweets = self.tweepy_app.home_timeline(count=no_tweets_to_check)
+        twt_fa_telegram_tweets= self.tweepy_app.favorites(screen_name="twt_fa_telegram", count=no_tweets_to_check)
+        tweets_all= twt_fa_telegram_tweets + twt_fa_telegram_tweets
+        for tweet in tweets_all:
         	story_data = dict()
         	story_data['title']= tweet.author.screen_name
         	story_data['description']= tweet.text
@@ -171,6 +174,6 @@ class TwitterClient(AbstractBaseClient):
         	story_data['id'] = tweet.id
         	story_data['url'] = "https://twitter.com/"+tweet.author.screen_name+"/status/"+str(tweet.id)
         	data.append(story_data)
-        	
-        	
+
+
         return data

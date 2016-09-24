@@ -438,7 +438,7 @@ th {
           box-sizing: border-box;
 }
 
-html, 
+html,
 body {
   height: 100%;
 }
@@ -475,7 +475,7 @@ header > a {
   font-weight: 700;
   text-decoration: none;
   margin-right: 20px;
-  font-size: 16px;  
+  font-size: 16px;
 }
 
 header nav {
@@ -538,8 +538,8 @@ ul.paginator li {
   display: inline;
 }
 
-h1, 
-h2, 
+h1,
+h2,
 h3 {
   font-weight: 500;
 }
@@ -559,6 +559,31 @@ h3 {
   font-size: 11px;
   color: #666;
 }
+
+/* LTR
+   ========================================================================== */
+.stories.right-aligned-language {
+     direction: rtl;
+     padding-right: 0;
+     margin-bottom: 20px;
+   }
+
+
+.stories li.right-aligned-language{
+  padding-right: 0;
+  margin-bottom: 5;
+  text-align: right;
+  direction: rtl;
+}
+
+.stories li.right-aligned-language p {
+  margin: 2px 0 0;
+  font-size: 11px;
+  color: #666;
+  text-align: right;
+  direction: rtl;
+}
+
 
 button {
   display: inline-block;
